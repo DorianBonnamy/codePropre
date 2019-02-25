@@ -22,7 +22,7 @@ public class calcul {
 	 * @param b
 	 * @return
 	 */
-	public int get2(int a, int b){
+	public int soustraction(int a, int b){
 		return a-b;
 	}
 }

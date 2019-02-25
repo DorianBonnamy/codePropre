@@ -1,40 +1,45 @@
 package ex3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author DIGINAMIC
  */
 public class Zoo {
 
 	private String nom;
-	private SavaneAfricaine savaneAfricaine;
-	private ZoneCarnivore zoneCarnivore;
-	private FermeReptile fermeReptile;
-	private Aquarium aquarium;
+	
+	private List<Zone> zones;
+	
+	public Zoo(){
+		zones = new ArrayList<Zone>();
+	}
 	
 	public Zoo(String nom){
 		this.nom = nom;
+		zones = new ArrayList<Zone>();
 	}
 	
 	public void addAnimal(String nomAnimal, String typeAnimal, String comportement){
 		if (typeAnimal.equals("MAMMIFERE") && comportement.equals("CARNIVORE")){
-			zoneCarnivore.addAnimal(typeAnimal, nomAnimal, comportement);
+			zones.add(new ZoneCarnivore(new Animal(typeAnimal, nomAnimal, comportement)));
 		}
 		else if (typeAnimal.equals("MAMMIFERE") && comportement.equals("HERBIVORE")){
-			savaneAfricaine.addAnimal(typeAnimal, nomAnimal, comportement);
+			zones.add(new SavaneAfricaine(new Animal(typeAnimal, nomAnimal, comportement)));
 		}
 		else if (typeAnimal.equals("REPTILE")){
-			fermeReptile.addAnimal(typeAnimal, nomAnimal, comportement);
+			zones.add(new FermeReptile(new Animal(typeAnimal, nomAnimal, comportement)));
 		}
 		else if (typeAnimal.equals("POISSON")){
-			aquarium.addAnimal(typeAnimal, nomAnimal, comportement);
+			zones.add(new Aquarium(new Animal(typeAnimal, nomAnimal, comportement)));
 		}
 	}
 	
 	public void afficherListeAnimaux(){
-		savaneAfricaine.afficherListeAnimaux();
-		zoneCarnivore.afficherListeAnimaux();
-		fermeReptile.afficherListeAnimaux();
-		aquarium.afficherListeAnimaux();
+		for(int i = 0; i < zones.size(); i++){
+			zones.get(i).afficherListeAnimaux();
+		}
 	}
 
 	/** Getter for nom

@@ -3,31 +3,23 @@ public enum BirdTypeEnum  {
     Eagle, Sparrow, Pigeon;
 
     public String move() {
-        switch (this) {
-        case Eagle:
-            return Eagle.toString() + " fly";
-        case Pigeon:
-            return Pigeon.toString() + " fly";
-        case Sparrow:
-            return Sparrow.toString() + " fly";
-        default:
-            return this.toString() + " fly";
-        }
-        
-        
-        
+    	return getType() + " fly";
     }
 
     public String getVoice() {
-        switch (this) {
-        case Eagle:
-            return Eagle.toString() + " gives voice";
-        case Pigeon:
-            return Pigeon.toString() + " gives voice";
-        case Sparrow:
-            return Sparrow.toString() + " gives voice";
-        default:
-            return this.toString() + " gives voice";
-        }
+    	return getType() + " gives voice";
+    }
+    
+    public String getType(){
+    	 switch (this) {
+         case Eagle:
+             return Eagle.toString();
+         case Pigeon:
+             return Pigeon.toString();
+         case Sparrow:
+             return Sparrow.toString();
+         default:
+             return this.toString();
+         }
     }
 }
